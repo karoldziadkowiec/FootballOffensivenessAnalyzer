@@ -1,5 +1,5 @@
 # Football Team Offensiveness Analyzer
-![0](github-img/0.jpg)
+![0](github-img/0.png)
 
 ## About project
 The system is a university project implemented in a **Jupyter Notebook** environment. It aims to calculate a football team's offensiveness over the course of a season, using its data on goals scored, shots taken per game and average ball possession per game. Models use **fuzzy logic** algorithms to calculate the membership of fuzzy logic sets.
