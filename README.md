@@ -2,7 +2,9 @@
 ![0](github-img/0.png)
 
 ## About project
-The system is a university project implemented in a **Jupyter Notebook** environment. It aims to calculate a football team's offensiveness over the course of a season, using its data on goals scored, shots taken per game and average ball possession per game. Models use **fuzzy logic** algorithms to calculate the membership of fuzzy logic sets.
+The system is a university project implemented in a **Jupyter Notebook** environment. It aims to calculate a football team's offensiveness over the course of a season, using its data on goals scored, shots taken per game and average ball possession per game. Models use **fuzzy logic** algorithms to calculate the membership of fuzzy logic sets. The developed fuzzy inference system operates in two modes:
+- processing football team data from a .csv file and calculating offensiveness based on read parameters,
+- calculating offensiveness based on user-provided parameters: team name, league name, goals, shoots per game and ball possession.
 
 ## Technologies
 - Tools:
@@ -33,7 +35,7 @@ Importing data:
 
 ![1](github-img/1.png)
 
-### Description of data
+### Description of read data
 
 Variable description:
 - **Team** - name of the football team participating in the league,
@@ -91,7 +93,7 @@ data = data[
 ]
 ```
 
-### Feature Engineering
+### Feature Engineering for .csv data
 
 Histogram for the **goals** variable:
 
