@@ -33,7 +33,7 @@ Importing data:
 
 ![1](github-img/1.png)
 
-### Description and division of data into input and output variables:
+### Description of data
 
 Variable description:
 - **Team** - name of the football team participating in the league,
@@ -106,21 +106,21 @@ Histogram for the **possession** variable:
 ![5](github-img/5.png)
 
 
-### Problem solving - Fuzzy logic
+## Problem solving - Fuzzy logic
 
-Fuzzy inference model - **Mamdani method**.
+### Fuzzy inference model - **Mamdani method**.
 
 The Mamdani model is a qualitative way of modeling based on expert knowledge, using fuzzy rules of the form “IF (x is A1), THEN (y is B1)”, where x and y are variables, and A1 and B1 are fuzzy sets. The rules describe local relationships between variables x and y, referring to fuzzy sets in premises and conclusions.
 
 ### Creating linguistic variables
 
 Input linguistic variables:
-- **Number of gates** *(goals)*: [no unit], range from 0 to 120,
-- **Average number of shots per game** *(shots_per_game)*: [no unit], range 0 to 30,
-- **Average percentage of ball possession** *(possesion)*: [%], range 0 to 100.
+- Liczba bramek - **Number of goals** *(goals)*: [no unit], range from 0 to 120,
+- Średnia liczba strzałów na mecz - **Average number of shots per game** *(shots_per_game)*: [no unit], range 0 to 30,
+- Średni procent posiadania piłki - **Average percentage of ball possession** *(possesion)*: [%], range 0 to 100.
 
 Output linguistic variables:
-- **Team Offensiveness** *(offensiveness)*: [%], range 0 to 100
+- Ofensywność drużyny - **Team Offensiveness** *(offensiveness)*: [%], range 0 to 100
 
 ```bash
 goals = ctrl.Antecedent(np.arange(0, 121, 1), 'Liczba bramek')
@@ -145,7 +145,7 @@ goals['duza'] = fuzz.trapmf(goals.universe, [75, 90, 120, 120])
 
 ![6](github-img/6.png)
 
-- The average number of shots per match (*Średnia liczba strzałów na mecz*)
+- Average number of shots per match (*Średnia liczba strzałów na mecz*)
   - mala - represents the small number of shots per match and is described by a trapezoidal function, which has a membership equal to 1 in the range from 0 to 6, and then decreases to 0 in the interval from 6 to 10, outside this range is 0.
   - srednia - represents the average number of shots per match and is described by a triangular function, whose membership reaches a maximum at 14, and decreases in the directions of 9 and 20.
   - duza - represents a large number of shots per match and is described by a trapezoidal function, which starts increasing at 14, reaches a maximum between 20 and 30, and remains equal to 1 until the end of the 30 range.
@@ -253,7 +253,7 @@ rules.append(ctrl.Rule(goals['duza'] & shots_per_game['duza'] & possession['sred
 rules.append(ctrl.Rule(goals['duza'] & shots_per_game['duza'] & possession['wysoki'], offensiveness['wysoka']))
 ```
 
-### Symulation
+### Simulation
 
 **Scenario 1**:
 - team name - **Manchester City**.
@@ -272,7 +272,7 @@ analyze_team_offensiveness(
 )
 ```
 
-Calculations:
+Results:
 
 ![10](github-img/10.png)
 
@@ -313,7 +313,7 @@ analyze_team_offensiveness(
 )
 ```
 
-Calculations:
+Results:
 
 ![16](github-img/16.png)
 
@@ -354,7 +354,7 @@ analyze_team_offensiveness(
 )
 ```
 
-Calculations:
+Results:
 
 ![22](github-img/22.png)
 
@@ -378,7 +378,11 @@ Team offensiveness:
 
 ![27](github-img/27.png)
 
-### Conclusions
+### Analysis of results
+
+Premier League table 2023/2024:
+
+![28](github-img/28.png)
 
 The results of the three scenarios are consistent with both the final table results of the Premier League 2023/2024, as well as with our own observations on the play of theoffensive performance of the teams. The analysis confirms that the developed fuzzy inference system accurately reflects the actual differences in the offensive performance of the various teams. 
 
