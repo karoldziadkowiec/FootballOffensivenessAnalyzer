@@ -9,7 +9,7 @@ The system is a university project implemented in a **Jupyter Notebook** environ
 ## Technologies
 - Tools:
      - **Google Colab** with **Jupyter Notebook**
-- Programming language: 
+- Programming language:
      - **Python**
 - Libraries:
      - **NumPy** - for numerical calculations,
